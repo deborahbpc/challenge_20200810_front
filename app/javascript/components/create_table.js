@@ -4,7 +4,7 @@ const uploadBtn =  document.getElementById('upload-btn')
 
 uploadBtn.addEventListener('submit', (event) => {
     event.preventDefault();
-})
+});
 
 
-const loadTable = 
+const loadTable = document.getElementById("products-list");
