@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ChallengeFrontend</title>
+    <title>Ruby on Rails Challenge 20200810</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,13 +13,11 @@
   </head>
 
   <body>
-    <div id="page-container">
-      <div id="content-wrap">
-        <%= render "shared/header" %>
-        <%= render "shared/flashes" %>
-        <%= yield %>
-      </div>
-      <%= render "shared/footer" %>
+    <%= render "shared/header" %>
+    <div class="container" role="main">
+      <%= render "shared/flashes" %>
+      <%= yield %>
     </div>
+    <%= render "shared/footer" %>
   </body>
 </html>

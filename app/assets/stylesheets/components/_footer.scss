@@ -1,30 +1,26 @@
-#page-container {
+html {
     position: relative;
-    min-height: 100vh;
+    min-height: 100%;
 }
-  
-#content-wrap {
-    padding-bottom: 80px;    /* Footer height */
+body {
+    margin-bottom: 80px; /* Margin bottom by footer height */
 }
-  
 #footer {
-    background-color: #3b3b3b;
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 80px;
-    padding: 10px;
-}
-
-#footer a {
-    color: #db1a1ade;
+    height: 80px; /* Set the fixed height of the footer here */
+    line-height: 40px; /* Vertically center the text there */
+    background-color: #C5B1AD;
 }
 
 #footer p {
-    color: #c9caca;
+    color: #ffffff;
 }
 
 .fa-heart {
     color: #BF0F12;
 }
 
+
+  
