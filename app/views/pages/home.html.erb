@@ -1,10 +1,6 @@
-<div class="container d-flex justify-content-center align-content-center align-items-center mt-5 mb-5">
-  <div class="side-info-box bg-light card-body shadow-sm r-border-card f-color">
-    <div class="row justify-content-center ">
-      <div class="my-3 col-10">
-        <p>Import a JSON file to update this dashboard</p>
-      </div>
-    </div>
+<div class="container">
+  <div class="side-info-box bg-light card-body shadow-sm r-border-card f-color d-flex justify-content-center align-content-center align-items-center mt-5 mb-5">
+    <p><strong>Add products to our database by uploading a JSON file. You can also edit and delete products.</strong></p>
   </div>
 </div>
 
@@ -12,11 +8,17 @@
   <div class="side-info-box bg-light card-body shadow-sm r-border-card f-color">
     <div class="row justify-content-center ">
       <div class="my-3 col-10">
-        <form class="upload">
-          <label for="json-file">Upload your JSON file: </label>
-          <input id="json-file" type="file" name="uploadFile" accept=".json" required />
-          <br/><br/>
-         <input type="submit" />
+        <form class="upload" data-remote="true">
+          <div class="form-row align-items-center">
+            <div class="col-auto">
+              <label for="upload-file" class="btn btn-select btn-secondary my-2 my-sm-0 btn-search-left">Select your file</label>
+              <input id="upload-file" class="upload-file border p-2" type="file" name="upload-file" accept=".json" required />
+              <input type="text" name="file-box" id="file-box" class="file-box" placeholder="File" readonly="readonly">
+            </div>
+            <div class="col-auto">
+              <button type="submit" class="btn btn-outline-secondary" id="upload-btn">Upload your JSON file</button>
+            </div>
+          </div>
         </form>
       </div>
     </div>
@@ -38,7 +40,7 @@
               <th scope="col">Actions</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="products-list">
             
           </tbody>
         </table>
