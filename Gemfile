@@ -22,6 +22,27 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+
+# A simple HTTP and REST client for Ruby
+gem 'rest-client', '~> 2.1'
+# Used to easily generate fake data
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+# Client library for easily using the Cloudinary service
+gem 'autoprefixer-rails'
+# Font-Awesome SASS gem for use in Ruby projects
+gem 'font-awesome-sass'
+# Forms made easy!
+gem 'simple_form'
+# Flexible authentication solution for Rails with Warden
+gem 'devise'
+# Use render in your Rails controllers and handle the response with Turbolinks.
+gem 'turbolinks_render'
+# Object oriented authorization for Rails applications
+gem 'pundit'
+# Bootstrap 4 ruby gem for Ruby on Rails
+gem 'bootstrap', '~> 5.0.0.alpha1'
+gem 'jquery-rails'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -29,6 +50,10 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
+  # Used to load environment variables from .env into ENV in development.
+  gem 'dotenv-rails'
+  gem 'pry-byebug'
+  gem 'pry-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end

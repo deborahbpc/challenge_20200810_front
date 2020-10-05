@@ -1,0 +1,30 @@
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+  
+#content-wrap {
+    padding-bottom: 80px;    /* Footer height */
+}
+  
+#footer {
+    background-color: #3b3b3b;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+}
+
+#footer a {
+    color: #db1a1ade;
+}
+
+#footer p {
+    color: #c9caca;
+}
+
+.fa-heart {
+    color: #BF0F12;
+}
+
