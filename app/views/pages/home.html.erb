@@ -14,11 +14,11 @@
             <div class="form-row align-items-center">
               <div class="col-auto">
                 <label for="upload-file" class="btn btn-select btn-secondary my-2 my-sm-0 btn-search-left">Select your file</label>
-                <input id="upload-file" class="upload-file border p-2" type="file" name="upload-file" accept=".json" required />
-                <input type="text" name="file-box" id="file-box" class="file-box" placeholder="File" readonly="readonly" style="height: 38px;" data-target="table.file">
+                <input id="upload-file" class="upload-file border p-2" data-target="table.File" type="file" name="upload-file" accept=".json" required />
+                <input type="text" name="file-box" id="file-box" class="file-box" placeholder="File" readonly="readonly" style="height: 38px;">
               </div>
               <div class="col-auto">
-                <button type="submit" class="btn btn-outline-secondary" id="upload-btn" data-action="click->table#upload">Upload your JSON file</button>
+                <button type="submit" class="btn btn-outline-secondary" id="upload-btn" data-action="click->table#upload click->table#updateTable">Upload your JSON file</button>
               </div>
             </div>
           </form>
