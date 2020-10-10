@@ -56,7 +56,14 @@ export default class extends Controller {
               if (products.length > 0) {
                   table.innerHTML = "";
                   products.forEach((product) => {
-                      table.innerHTML += `<td>${product.title}</td><td>${product.type}</td><td>${product.rating}</td><td>$${product.price}</td><td>${product.created_at}</td><td>Actions</td>`;
+                      table.innerHTML += `
+                            <td>${product.title}</td>
+                            <td>${product.type}</td>
+                            <td>${product.rating}</td>
+                            <td>$${product.price}</td>
+                            <td>${new Date(product.created_at).toLocaleString('pt-BR', { dateStyle: 'short' })}</td>
+                            <td>Actions</td>
+                      `;
                   });
               }
           },
