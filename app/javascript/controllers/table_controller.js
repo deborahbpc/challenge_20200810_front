@@ -6,7 +6,7 @@ export default class extends Controller {
 
   initialize() {
     console.log('Hello!');
-    setTimeout(this.updateTable, 10000);
+    // setTimeout(this.updateTable, 100000);
   };
 
   upload () {
@@ -20,19 +20,20 @@ export default class extends Controller {
       console.log(newProducts);
       newProducts.forEach((product) => {
           fetch(
-              "https://cors-anywhere.herokuapp.com/https://challenge-20200810-v1.herokuapp.com/api/v1/products", {
+              "https://challenge-20200810-v1.herokuapp.com/api/v1/products", {
                   method: "POST",
                   headers: {
                       "content-type": "application/json",
                       "X-User-Email": "teste@teste.com",
                       "X-User-Token": APIKEY,
                   },
-                  body: { products_arr: JSON.stringify(product) },
+                  body: JSON.stringify(product),
               }
           );
       });
     };
-    this.updateTable();
+    // this.updateTable();
+    setTimeout(this.updateTable, 100000);
   };
 
   updateTable = () => {
@@ -41,7 +42,7 @@ export default class extends Controller {
     let table = document.getElementById("products-list");
     const APIKEY = process.env.API_KEY
     fetch(
-      "https://cors-anywhere.herokuapp.com/https://challenge-20200810-v1.herokuapp.com/api/v1/products", {
+      "https://challenge-20200810-v1.herokuapp.com/api/v1/products", {
           headers: {
               "X-User-Email": "teste@teste.com",
               "X-User-Token": APIKEY,
@@ -52,7 +53,7 @@ export default class extends Controller {
       .then((data) => (products = data))
       .then(
           () => {
-              console.log(products);
+              console.log("Products" + products);
               if (products.length > 0) {
                   table.innerHTML = "";
                   products.forEach((product) => {
@@ -61,7 +62,9 @@ export default class extends Controller {
               }
           },
           () => {
-              console.log("No products to show.");
+              if (products.length === 0) {
+                console.log("No products to show.");
+              }
           }
       );
   };
