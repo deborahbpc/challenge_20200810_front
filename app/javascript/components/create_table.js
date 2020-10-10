@@ -1,10 +1,10 @@
-const body = document.getElementById('products-list');
+// const body = document.getElementById('products-list');
 
-const uploadBtn =  document.getElementById('upload-btn')
+// const uploadBtn =  document.getElementById('upload-btn')
 
-uploadBtn.addEventListener('submit', (event) => {
-    event.preventDefault();
-});
+// uploadBtn.addEventListener('submit', (event) => {
+//     event.preventDefault();
+// });
 
 
-const loadTable = document.getElementById("products-list");
+// const loadTable = document.getElementById("products-list");
