@@ -6,7 +6,7 @@ export default class extends Controller {
 
   initialize() {
     console.log('Hello!');
-    // setTimeout(this.updateTable, 100000);
+    setTimeout(this.updateTable, 50000);
   };
 
   upload () {
@@ -32,8 +32,7 @@ export default class extends Controller {
           );
       });
     };
-    // this.updateTable();
-    setTimeout(this.updateTable, 100000);
+    this.updateTable();
   };
 
   updateTable = () => {
@@ -53,11 +52,11 @@ export default class extends Controller {
       .then((data) => (products = data))
       .then(
           () => {
-              console.log("Products" + products);
+              console.log(products);
               if (products.length > 0) {
                   table.innerHTML = "";
                   products.forEach((product) => {
-                      table.innerHTML += `<td>${product.title}</td><td>${product.type}</td><td>${product.rating}</td><td>$${product.price}</td><td>${product.created_at.strftime("%d/%m/%Y")}</td><td>Actions</td>`;
+                      table.innerHTML += `<td>${product.title}</td><td>${product.type}</td><td>${product.rating}</td><td>$${product.price}</td><td>${product.created_at}</td><td>Actions</td>`;
                   });
               }
           },
