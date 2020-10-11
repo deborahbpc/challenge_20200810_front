@@ -33,6 +33,7 @@ export default class extends Controller {
             );
         });
       };
+      setTimeout(this.updateTable, 20000);
     } else {
       console.log("No file selected")
     };
@@ -124,7 +125,7 @@ export default class extends Controller {
                                 </div>
                               </div>
 
-                              <button data-confirm="Are you sure?" type="button" class="btn btn-link" id="${product.id}" data-url="https://challenge-20200810-v1.herokuapp.com/api/v1/products/${product.id}"><!--<i class="far fa-trash-alt"></i>-->Delete </button>
+                              <button data-action="click->table#deleteProduct" type="button" class="btn btn-link" id="${product.id}" data-url="https://challenge-20200810-v1.herokuapp.com/api/v1/products/${product.id}"><!--<i class="far fa-trash-alt"></i>-->Delete </button>
                             </td>
                       `;
                   });
@@ -136,32 +137,57 @@ export default class extends Controller {
   };
 
   
-  updateProduct = () => {
-    fetch(
-      "https://challenge-20200810-v1.herokuapp.com/api/v1/products", {
-          method: "PUT",
-          headers: {
-              "content-type": "application/json",
-              "X-User-Email": "teste@teste.com",
-              "X-User-Token": APIKEY,
-          },
-          body: JSON.stringify(product),
-      }
-    );
+  updateProduct = (event) => {
+    event.preventDefault();
+    console.log(event.currentTarget.getAttribute("data-url"))
+    const url = event.currentTarget.getAttribute("data-url")
+    const APIKEY = process.env.API_KEY
+    const ok = confirm("Are you sure you want to edit this product?")
+    if (!ok) {
+      return false;
+    } else {
+      fetch(
+        "https://challenge-20200810-v1.herokuapp.com/api/v1/products", {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json",
+                "X-User-Email": "teste@teste.com",
+                "X-User-Token": APIKEY,
+            },
+            body: JSON.stringify(product),
+        }
+      );
+    }
   };
 
-  deleteProduct = () => {
-
-    fetch(
-      "https://challenge-20200810-v1.herokuapp.com/api/v1/products", {
-          method: "DELETE",
-          headers: {
-              "content-type": "application/json",
-              "X-User-Email": "teste@teste.com",
-              "X-User-Token": APIKEY,
-          },
-          body: JSON.stringify(product),
-      }
-    );
+  deleteProduct = (event) => {
+    event.preventDefault();
+    console.log(event.currentTarget.getAttribute("data-url"))
+    const url = event.currentTarget.getAttribute("data-url")
+    const APIKEY = process.env.API_KEY
+    const ok = confirm("Are you sure you want to delete this product?")
+    if(!ok) {
+      return false;
+    } else {
+      fetch(
+        url, {
+            method: "DELETE",
+            headers: {
+                "X-User-Email": "teste@teste.com",
+                "X-User-Token": APIKEY,
+            },
+        }
+      )
+      .then((response) => {
+        console.log(response.status);
+        if (response.status === 204) {
+          alert("Product deleted");
+          this.updateTable();
+        }
+        else if (response.status !== 204) {
+          alert("Something went wrong");
+        }
+      })
+    }
   };
 }
