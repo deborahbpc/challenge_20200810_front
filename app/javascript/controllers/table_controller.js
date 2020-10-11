@@ -121,7 +121,7 @@ export default class extends Controller {
                                             <input class="form-control is-valid numeric integer required" type="number" id="rating" step="1" min="1" max="5" value="${product.rating}">
                                           </div>
                                           <div class="d-flex justify-content-center">
-                                            <button type="submit" data-remote="true" class="btn btn-outline-secondary" data-action="submit->table#updateProduct" id="editForm${product.id}" data-url="https://challenge-20200810-v1.herokuapp.com/api/v1/products/${product.id}">Save changes</button>
+                                            <button type="submit" data-remote="true" class="btn btn-outline-secondary" data-action="submit->table#updateProduct" id="${product.id}" data-url="https://challenge-20200810-v1.herokuapp.com/api/v1/products/${product.id}">Save changes</button>
                                           </div>
                                         </form>
                                       </div>
@@ -129,7 +129,7 @@ export default class extends Controller {
                                   </div>
                                 </div>
   
-                                <button data-action="click->table#deleteProduct" type="button" class="btn btn-link" id="${product.id}" data-url="https://challenge-20200810-v1.herokuapp.com/api/v1/products/${product.id}"><!--<i class="far fa-trash-alt"></i>-->Delete </button>
+                                <button data-action="click->table#deleteProduct" type="button" class="btn btn-link" id="delete${product.id}" data-url="https://challenge-20200810-v1.herokuapp.com/api/v1/products/${product.id}"><!--<i class="far fa-trash-alt"></i>-->Delete </button>
                               </td>
                         `;
                     });
@@ -146,6 +146,7 @@ export default class extends Controller {
   
   updateProduct = (event) => {
     event.preventDefault();
+    console.log(event.currentTarget.getAttribute("id"))
     let myForm = document.getElementById(`form-${event.currentTarget.getAttribute("id")}`)
     console.log(myForm);
     let data = new FormData()
@@ -202,5 +203,9 @@ export default class extends Controller {
         }
       })
     }
+  };
+
+  refresh = () => {
+
   };
 }
