@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Ruby on Rails Challenge 20200810
 
-Things you may want to cover:
+### Frontend
+Frontend application to connect with built API.
+Through this dashboard the user can load a JSON file and list all products within the database.
 
-* Ruby version
+It's also possible to edit the product info or even delete it from the database.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+If products are added to the database by another person, this dashboard will be updated with the new products. This dashboard check for changes in the database every minute.

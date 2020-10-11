@@ -147,7 +147,7 @@ export default class extends Controller {
     // console.log(event.currentTarget.getAttribute("id"))
     let myForm = document.getElementById(`form-${event.currentTarget.getAttribute("id")}`)
     let index = event.currentTarget.getAttribute("data-index");
-    console.log(index);
+    // console.log(index);
     let title = myForm.querySelector('#title').value
     let type = myForm.querySelector('#type').value
     let description = myForm.querySelector('#description').value
@@ -221,7 +221,11 @@ export default class extends Controller {
       .then((response) => {
         console.log(response.status);
         if (response.status === 204) {
-          alert("Product deleted");
+          // let body = document.querySelector('body')
+          // let flash = `flash[:notice] = 'Product deleted'`
+          // body.insertAdjacentElement('afterbegin', flash)
+          // alert("Product deleted");
+          new window.FlashMessage('Product successfully deleted!', 'success');
           this.updateTable();
         }
         else if (response.status !== 204) {
