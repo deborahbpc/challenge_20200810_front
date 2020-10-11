@@ -42,6 +42,7 @@ export default class extends Controller {
 
   updateTable = () => {
     console.log("Updating table...")
+    alert("Updating dashboard")
     let products;
     let table = document.getElementById("products-list");
     const APIKEY = process.env.API_KEY
@@ -225,7 +226,8 @@ export default class extends Controller {
           // let flash = `flash[:notice] = 'Product deleted'`
           // body.insertAdjacentElement('afterbegin', flash)
           // alert("Product deleted");
-          new window.FlashMessage('Product successfully deleted!', 'success');
+          // new window.FlashMessage('Product successfully deleted!', 'success');
+          alert("Product deleted");
           this.updateTable();
         }
         else if (response.status !== 204) {

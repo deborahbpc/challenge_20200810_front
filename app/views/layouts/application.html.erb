@@ -13,9 +13,9 @@
   </head>
 
   <body>
-    <script src="../javascript/controllers/table_controller.js"></script>
     <%= render "shared/header" %>
     <div class="container" role="main">
+      <%= render "shared/flashes" %>
       <%= yield %>
     </div>
     <%= render "shared/footer" %>
