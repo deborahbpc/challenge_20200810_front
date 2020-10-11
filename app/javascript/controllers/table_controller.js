@@ -225,9 +225,10 @@ export default class extends Controller {
           // let body = document.querySelector('body')
           // let flash = `flash[:notice] = 'Product deleted'`
           // body.insertAdjacentElement('afterbegin', flash)
-          // alert("Product deleted");
           // new window.FlashMessage('Product successfully deleted!', 'success');
-          alert("Product deleted");
+          // window.flash("Product deleted", 'success');
+          // window.FlashMessage.success('This is a successs flash message !');
+          alert("Product successfully deleted");
           this.updateTable();
         }
         else if (response.status !== 204) {
