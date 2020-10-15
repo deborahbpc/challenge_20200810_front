@@ -136,6 +136,9 @@ export default class extends Controller {
                     `;
                   });
               } else if (products.length === 0) {
+                let tbody = document.querySelector("tbody")
+                tbody.setAttribute("data-lenght", products.length)
+                table.innerHTML = "";
                 console.log("No products to show.");
               }
           }
